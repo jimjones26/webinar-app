@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { TodoDisplayComponent } from './components/todo-display/todo-display.component';
+import { TodoService } from './services/todo.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { TodoDisplayComponent } from './components/todo-display/todo-display.com
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
