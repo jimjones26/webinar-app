@@ -24,4 +24,11 @@ export class TodoDisplayComponent implements OnInit {
     this.taskDeleted.emit(index);
   }
 
+  getCompleteButtonText(task) {
+    if (task.isComplete) {
+      return 'Redo';
+    }
+    return 'Complete';
+  }
+
 }
