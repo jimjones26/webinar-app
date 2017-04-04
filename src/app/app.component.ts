@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'TODO List App';
+  tasks: Array<string> = [];
+
+  addTask(taskInput: any) {
+    this.tasks.push(taskInput.value);
+    taskInput.value = '';
+    console.log(this.tasks);
+  }
 }
