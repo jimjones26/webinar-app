@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'TODO List App';
   tasks: Array<string> = [];
 
-  addTask(taskInput: any) {
+  addTask(taskInput: HTMLInputElement) {
     this.tasks.push(taskInput.value);
     taskInput.value = '';
     console.log(this.tasks);
