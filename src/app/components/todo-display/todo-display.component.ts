@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo-display',
@@ -7,21 +8,22 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class TodoDisplayComponent implements OnInit {
 
-  @Input() tasksToDisplay: Array<Object>;
-  @Output() taskCompleted = new EventEmitter();
-  @Output() taskDeleted = new EventEmitter();
+  tasksToDisplay: Array<Object>;
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.tasksToDisplay = this.todoService.getTasks();
   }
 
   completeTask(index) {
-    this.taskCompleted.emit(index);
+    this.todoService.completeTask(index);
+    this.tasksToDisplay = this.todoService.getTasks();
   }
 
   deleteTask(index) {
-    this.taskDeleted.emit(index);
+    this.todoService.deleteTask(index);
+    this.tasksToDisplay = this.todoService.getTasks();
   }
 
   getCompleteButtonText(task) {
