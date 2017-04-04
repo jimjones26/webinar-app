@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'TODO List App';
   tasks: Array<string> = [];
+  buttonLabel = 'Add Task';
 
-  addTask(taskInput: HTMLInputElement) {
-    this.tasks.push(taskInput.value);
-    taskInput.value = '';
+  addTask(taskInput: string) {
+    this.tasks.push(taskInput);
     console.log(this.tasks);
   }
 }

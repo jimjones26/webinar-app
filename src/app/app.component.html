@@ -1,8 +1,8 @@
 <h1>
   {{title}}
 </h1>
-<input type="text" #taskInput>
-<button (click)="addTask(taskInput)">Add Task</button>
+
+<app-text-input [buttonLabel]="buttonLabel" (textInputted)="addTask($event)"></app-text-input>
 
 <ul>
   <li *ngFor="let task of tasks">{{task}}</li>
